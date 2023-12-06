@@ -1,0 +1,171 @@
+/* Resetting default styles for all elements */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Fasthand', cursive;
+    color: white;
+}
+
+/* Navigation bar styling */
+.nav {
+    background-color: darkslategray;
+    overflow: hidden;
+}
+
+/* Logo styling */
+.logo {
+    margin-left: 180px;
+    font-size: 50px;
+    float: left;
+}
+
+/* Hover effect for the logo */
+.logo:hover {
+    text-shadow: 0 0 5px #33ffff,
+                  0 0 5px #66ffff;  
+}
+
+/* Clearfix for floated elements */
+.clear {
+    clear: both;
+}
+
+/* Styling for navigation links */
+.links ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+/* Hover effect for navigation links */
+.links li a:hover {
+    box-shadow: 0 0 5px #33ffff,
+    0 0 5px #66ffff;
+    border-radius: 5px;
+    color: cyan;   
+    padding: 0 10px;
+    transition: 0.2s;
+}
+
+/* Styling for the navigation list container */
+.links ul {
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+    justify-content: flex-end;
+    margin: 30px 100px 0 0;
+}
+
+/* Checkbox for responsive navigation */
+#check {
+    display: none;
+}
+
+/* Styling for the menu icon */
+.bar i {
+    font-size: 30px;
+    background-color: #070f26;
+    border: 1px solid #070f26;
+    border-radius: 8px;
+    padding: 10px;
+    color: cyan;
+    display: none;
+}
+
+/* Hover effect for the menu icon */
+.bar i:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px #33ffff,
+                0 0 5px #33ffff;
+}
+
+/* Body styling */
+.body {
+    background-color: #d3eaf2;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 733px) {
+    /* Adjusting logo size and position */
+    .logo {
+        width: 5%;
+        margin: auto;
+        float: none;
+    }
+
+    /* Centering and styling navigation links */
+    .links ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #0b2d39;
+    }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 692px) {
+    /* Displaying navigation links as a block with a vanish animation */
+    .links ul {
+        display: block;
+        animation: vanish;
+        animation-duration: 0.8s;
+        animation-iteration-count: initial;
+    }
+}
+
+/* Media query for the smallest screens */
+@media (max-width: 680px) {
+    /* Hiding regular navigation links */
+    .links ul {
+        display: none;
+    }
+
+    /* Adjusting logo position */
+    .logo {
+        margin: 0 30px;
+    }
+
+    /* Styling and positioning the menu icon */
+    .bar i {
+        display: flex;
+        width: fit-content;
+        position: absolute;
+        top: 25px;
+        right: 20px;
+    }
+
+    /* Responsive navigation animation */
+    #check:checked + .links ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        animation: drop;
+        animation-duration: 0.5s;
+        animation-iteration-count: initial;
+        animation-direction: reverse;
+    }
+}
+
+/* Keyframe animation for responsive navigation drop effect */
+@keyframes drop {
+    to {
+        background-color: #0b2d39;
+        transform: rotate(180deg);
+        transform-origin: top right;
+    }
+}
+
+/* Keyframe animation for vanishing effect */
+@keyframes vanish {
+    to {
+        background-color: #0b2d39;
+        transform: rotateX(90deg);
+        transform-origin: top center;
+    }
+}
